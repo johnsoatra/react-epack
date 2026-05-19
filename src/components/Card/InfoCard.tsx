@@ -2,12 +2,13 @@ import type { InfoCardProps } from "./types";
 import Card from "./Card";
 import Icon from "../Icon/Icon";
 
-export function InfoCard({
+export default function InfoCard({
   htmlTitle,
   icon,
   title,
   description,
   info,
+  suffix,
   ...props
 }: InfoCardProps) {
   return (
@@ -17,6 +18,7 @@ export function InfoCard({
         {title}
         {description}
       </div>
+      {suffix && <Icon {...suffix} />}
     </Card>
   );
 }

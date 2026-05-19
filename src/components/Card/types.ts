@@ -8,4 +8,5 @@ export type InfoCardProps = ExcludeChildren<Omit<CardProps, 'title'>> & {
   title: React.ReactNode;
   description?: React.ReactNode;
   info?: ExcludeChildren<DivProps>;
+  suffix?: IconProps;
 };

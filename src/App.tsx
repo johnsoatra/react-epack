@@ -4,12 +4,12 @@ import Button from "./components/Button/Button";
 import Table from "./components/Table/Table";
 import Icon from "./components/Icon/Icon";
 import Hero from "./assets/hero.png";
-import { InfoCard } from "./components/Card/InfoCard";
 import Switch from "./components/Switch/Switch";
 import Textarea from "./components/Textarea/Textarea";
 import Select from "./components/Select/Select";
 import Label from "./components/Label/Label";
 import Popover from "./components/Popover/Popover";
+import InfoCard from "./components/Card/InfoCard";
 
 export default function App() {
   const [showPassword, setShowPassword] = useState(false);
