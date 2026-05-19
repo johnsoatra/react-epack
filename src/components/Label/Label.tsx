@@ -1,8 +1,4 @@
-import type React from "react";
-
-export type LabelProps = Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor'> & {
-  htmlFor: string;
-};
+import type { LabelProps } from "./types";
 
 export default function Label(props: LabelProps) {
   return (

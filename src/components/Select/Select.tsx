@@ -20,7 +20,8 @@ export default function Select({
         {options?.map(data =>
           <option
             key={data.value}
-            {...(typeof option === 'function' ? option(data) : option)}>
+            {...(typeof option === 'function' ? option(data) : option)}
+            value={data.value}>
             {data.label}
           </option>
         )}

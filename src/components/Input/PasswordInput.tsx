@@ -1,8 +1,5 @@
-import Input, { type InputProps } from "./Input";
-
-export type PasswordInputProps = Omit<InputProps, 'type'> & {
-  show: boolean;
-};
+import type { PasswordInputProps } from "./types";
+import Input from "./Input";
 
 export default function PasswordInput({
   show,

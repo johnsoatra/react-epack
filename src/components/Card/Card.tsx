@@ -1,6 +1,4 @@
-import type { DivProps } from "../types";
-
-export type CardProps = DivProps;
+import type { CardProps } from "./types";
 
 export default function Card(props: CardProps) {
   return (

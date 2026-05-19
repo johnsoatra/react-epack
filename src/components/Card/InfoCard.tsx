@@ -1,17 +1,6 @@
-import type React from "react"
-import type { CardProps } from "./Card"
-import type { IconProps } from "../Icon/Icon"
-import type { DivProps } from "../types";
+import type { InfoCardProps } from "./types";
 import Card from "./Card";
 import Icon from "../Icon/Icon";
-
-export type InfoCardProps = Omit<CardProps, 'title'> & {
-  htmlTitle?: string;
-  icon: IconProps;
-  title: React.ReactNode;
-  description?: React.ReactNode;
-  info?: DivProps;
-};
 
 export function InfoCard({
   htmlTitle,

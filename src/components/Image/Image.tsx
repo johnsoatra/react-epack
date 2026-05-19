@@ -1,9 +1,4 @@
-import type React from "react";
-
-export type ImageProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'alt' | 'src'> & {
-  alt: string;
-  src: string;
-};
+import type { ImageProps } from "./types";
 
 export default function Image({
   ...props

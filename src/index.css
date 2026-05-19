@@ -1,10 +1,6 @@
 @import "tailwindcss";
 
-@layer base {
-  * {
-    @apply border-gray-300;
-  }
-
+@layer components {
   button[data-id='button'] {
     @apply flex items-center gap-x-1 rounded-sm p-1 cursor-pointer;
   }
@@ -18,7 +14,11 @@
     &>input,
     &>textarea,
     &>select {
-      @apply flex-1 p-2 outline-none resize-none;
+      @apply flex-1 p-2 outline-none;
+    }
+
+    &>textarea {
+      @apply resize-none;
     }
   }
 
@@ -42,7 +42,7 @@
   }
 
   div[data-id="card"] {
-    @apply flex items-center gap-x-1.5;
+    @apply flex items-center gap-x-1.5 border p-2 rounded-sm;
   }
 
   label[data-id="label-switch"] {
@@ -68,6 +68,22 @@
       &>input:checked~div[data-id="slider"]>div[data-id="slider-ball"] {
         @apply left-[calc(100%-1px)] -translate-x-full;
       }
+    }
+  }
+
+  div[data-id="popover"] {
+    @apply relative;
+
+    &>div[data-id="content"] {
+      @apply absolute cursor-default top-[calc(100%+4px)] left-0 border rounded-sm p-1;
+    }
+  }
+
+  div[data-id="line"] {
+    @apply w-full h-[0.5px] bg-gray-300;
+
+    &[data-orientation="vertical"] {
+      @apply w-[0.5px] h-auto;
     }
   }
 }

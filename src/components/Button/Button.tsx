@@ -1,12 +1,5 @@
-import type React from "react";
-import type { IconProps } from "../Icon/Icon";
+import type { ButtonProps } from "./types";
 import Icon from "../Icon/Icon";
-
-export type ButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'prefix'> & {
-  reactPrefix?: string;
-  prefix?: IconProps;
-  suffix?: IconProps;
-};
 
 export default function Button({
   reactPrefix,

@@ -7,9 +7,13 @@ import Hero from "./assets/hero.png";
 import { InfoCard } from "./components/Card/InfoCard";
 import Switch from "./components/Switch/Switch";
 import Textarea from "./components/Textarea/Textarea";
+import Select from "./components/Select/Select";
+import Label from "./components/Label/Label";
+import Popover from "./components/Popover/Popover";
 
 export default function App() {
   const [showPassword, setShowPassword] = useState(false);
+  const [value, setValue] = useState('1');
   return (
     <div className="w-full flex flex-col p-5">
       <button onClick={() => setShowPassword(s => !s)}>show</button>
@@ -62,13 +66,25 @@ export default function App() {
       />
       {/* <Switch id="test" name="test" />
       <Textarea id="test" placeholder="test text area" prefix={{ node: <p>Hello</p> }}/> */}
-      <label htmlFor="cars">Choose a car:</label>
-      <select id="cars" name="cars">
-        <option value="volvo" className="bg-red-300">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option>
-      </select>
+      {/* <label htmlFor="cars">Choose a car:</label> */}
+      <Label htmlFor="test">For card</Label>
+      <Select
+        id="test"
+        value={value}
+        options={[
+          { label: 'test-1', value: '1' },
+          { label: 'test-2', value: '2' },
+          { label: 'test-3', value: '3' },
+          { label: 'test-4', value: '4' },
+        ]}
+        option={(data) => ({
+          className: value === data.value ? 'bg-red-200' : '',
+        })}
+        onChange={e => {
+          console.log(e.target.value);
+          setValue(e.target.value)
+        }}
+      />
     </div>
   );
 }

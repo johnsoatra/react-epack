@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { SvgProps } from './types';
 
 const Icons = import.meta.glob('@/assets/svg/**/*.svg', {
   eager: true,
@@ -8,10 +9,6 @@ const Icons = import.meta.glob('@/assets/svg/**/*.svg', {
   string,
   React.FC<React.SVGProps<SVGSVGElement>>
 >;
-
-export type SvgProps = React.SVGProps<SVGSVGElement> & {
-  path: string,
-};
 
 export default function Svg({
   path,

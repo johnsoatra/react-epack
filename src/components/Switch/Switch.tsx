@@ -1,15 +1,7 @@
-import type { LabelProps } from "../Label/Label";
-import type { InputProps } from "../Input/Input";
-import type { DivProps } from "../types";
+import type { SwitchProps } from "./types";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
 import Icon from "../Icon/Icon";
-
-export type SwitchProps = Omit<InputProps, 'type'> & {
-  label?: LabelProps;
-  slider?: DivProps;
-  sliderBall?: DivProps;
-};
 
 export default function Switch({
   label,
