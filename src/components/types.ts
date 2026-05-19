@@ -1,0 +1,4 @@
+import type React from "react";
+
+export type DivProps = React.HTMLAttributes<HTMLDivElement>;
+export type InputExcludedAttributes = 'id' | 'name' | 'prefix';

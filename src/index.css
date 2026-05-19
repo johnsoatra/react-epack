@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply border-gray-300;
+  }
+
+  button[data-id='button'] {
+    @apply flex items-center gap-x-1 rounded-sm p-1 cursor-pointer;
+  }
+
+  div[data-id="div-input"],
+  div[data-id="div-textarea"],
+  div[data-id="div-select"] {
+    @apply flex items-center gap-x-1 rounded-sm border bg-white overflow-hidden;
+    @apply focus-within:border-gray-400 focus-within:ring-2 focus-within:ring-gray-100;
+
+    &>input,
+    &>textarea,
+    &>select {
+      @apply flex-1 p-2 outline-none resize-none;
+    }
+  }
+
+  table[data-id="table"] {
+    @apply w-full border rounded-2xl overflow-hidden;
+    @apply border-separate border-spacing-0;
+
+    &>thead>tr>th,
+    &>tbody>tr>td {
+      @apply text-start p-1.5;
+      @apply border-r border-t;
+
+      &:last-child {
+        @apply border-r-0;
+      }
+    }
+
+    &>thead>tr>th {
+      @apply border-t-0;
+    }
+  }
+
+  div[data-id="card"] {
+    @apply flex items-center gap-x-1.5;
+  }
+
+  label[data-id="label-switch"] {
+    &>div[data-id="div-input"] {
+      @apply border-0 bg-transparent px-0;
+
+      &>input {
+        @apply hidden;
+      }
+
+      &>div[data-id="slider"] {
+        @apply relative w-11.5 h-6 rounded-full bg-gray-300 cursor-pointer;
+      }
+
+      &>div[data-id="slider"]>div[data-id="slider-ball"] {
+        @apply transition-all absolute top-px left-px h-[calc(100%-2px)] aspect-square rounded-full bg-white;
+      }
+
+      &>input:checked~div[data-id="slider"] {
+        @apply bg-blue-500;
+      }
+
+      &>input:checked~div[data-id="slider"]>div[data-id="slider-ball"] {
+        @apply left-[calc(100%-1px)] -translate-x-full;
+      }
+    }
+  }
+}
