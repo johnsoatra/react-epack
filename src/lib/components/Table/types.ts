@@ -8,20 +8,21 @@ export type Column<T> = {
 };
 export type TheadProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
 export type TrProps = ExcludeChildren<React.HTMLAttributes<HTMLTableRowElement>>;
-export type ThProps = ExcludeChildren<React.ThHTMLAttributes<HTMLTableCellElement>>;
+export type ThProps = React.ThHTMLAttributes<HTMLTableCellElement>;
 export type TBodyProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
-export type TdProps = ExcludeChildren<React.HTMLAttributes<HTMLTableCellElement>>;
+export type TdProps = React.HTMLAttributes<HTMLTableCellElement>;
 export type TableProps<T extends TypeId> = ExcludeChildren<React.TableHTMLAttributes<HTMLTableElement>> & {
   columns: Column<T>[];
   rows: T[];
   thead?: TheadProps;
   theadTr?: TrProps;
-  th?: ThProps | ((column: Column<T>) => ThProps);
+  th?: ThProps | ((column: Column<T>, index: number) => ThProps);
   tbody?: TBodyProps;
-  tbodyTr?: TrProps | ((row: T) => TrProps);
-  td?: TdProps | ((row: T, column: Column<T>) => TdProps);
-  renderCell?: (data: {
-    row: T,
-    column: Column<T>,
-  }) => React.ReactNode;
+  tbodyTr?: TrProps | ((row: T, index: number) => TrProps);
+  td?: TdProps | ((data: {
+    row: T;
+    column: Column<T>;
+    rowIndex: number;
+    columnIndex: number;
+  }) => TdProps);
 }

@@ -30,7 +30,10 @@
     "preview": "vite preview",
     "build:vite": "tsc -b && vite build",
     "build:types": "rollup -c rollup.config.ts",
-    "build": "npm run build:vite && npm run build:types"
+    "build": "npm run build:vite && npm run build:types",
+    "watch:vite": "vite build --watch",
+    "watch:types": "rollup -c rollup.config.ts --watch",
+    "watch": "npm run watch:vite & npm run watch:types"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -42,6 +45,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "chokidar-cli": "^3.0.0",
     "rollup": "^4.60.4",
     "rollup-plugin-dts": "^6.4.1",
     "tailwindcss": "^4.3.0",

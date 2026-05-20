@@ -6,12 +6,7 @@ export type Option = {
   label: React.ReactNode;
   value: any;
 }
-export type OptionProps = ExcludeChildren<
-  Omit<
-    React.OptionHTMLAttributes<HTMLOptionElement>,
-    'value'
-  >
->;
+export type OptionProps = Omit<React.OptionHTMLAttributes<HTMLOptionElement>, 'value'>;
 export type SelectProps = ExcludeChildren<
   Omit<
     React.SelectHTMLAttributes<HTMLSelectElement>,
@@ -20,7 +15,7 @@ export type SelectProps = ExcludeChildren<
 > & {
   id: string;
   options: Option[];
-  option?: OptionProps | ((option: Option) => OptionProps);
+  option?: OptionProps | ((option: Option, index: number) => OptionProps);
   container?: ExcludeChildren<DivProps>;
   reactPrefix?: string;
   prefix?: IconProps;

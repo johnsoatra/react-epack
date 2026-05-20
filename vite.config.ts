@@ -1,4 +1,3 @@
-import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
@@ -11,10 +10,13 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
+    emptyOutDir: false,
+    cssCodeSplit: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/lib/index.ts'),
+      entry: 'src/lib/index.ts',
+      name: 'ReactMiniBag',
       formats: ['es'],
-      fileName: () => 'index.js',
+      fileName: 'index',
     },
     rollupOptions: {
       external: (id) =>

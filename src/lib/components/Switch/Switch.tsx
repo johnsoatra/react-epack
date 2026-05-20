@@ -7,6 +7,7 @@ export default function Switch({
   label,
   slider,
   sliderBall,
+  suffix,
   ...props
 }: SwitchProps) {
   return (
@@ -19,7 +20,7 @@ export default function Switch({
             <div {...slider} data-id="slider">
               <div {...sliderBall} data-id="slider-ball" />
             </div>
-            {props.suffix && <Icon {...props.suffix} />}
+            {suffix && <Icon {...suffix} />}
           </>
         }}
       />

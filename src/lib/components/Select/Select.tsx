@@ -17,14 +17,21 @@ export default function Select({
         {...props}
         name={props.id}
         prefix={reactPrefix}>
-        {options?.map(data =>
-          <option
-            key={data.value}
-            {...(typeof option === 'function' ? option(data) : option)}
-            value={data.value}>
-            {data.label}
-          </option>
-        )}
+        {options.map((data, index) => {
+          const { children, ...optionProps } = (
+            typeof option === 'function' ?
+              option(data, index) :
+              option
+          ) ?? {};
+          return (
+            <option
+              key={data.value}
+              {...optionProps}
+              value={data.value}>
+              {children !== undefined ? children : data.label}
+            </option>
+          );
+        })}
       </select>
       {suffix && <Icon {...suffix} />}
     </div>

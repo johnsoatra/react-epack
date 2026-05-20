@@ -1,4 +1,3 @@
-
 import type { IconProps } from "../Icon/types";
 import type { DivProps, ExcludeChildren, InputExcludedAttributes } from "../types";
 

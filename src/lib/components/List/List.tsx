@@ -9,16 +9,16 @@ export default function List<T extends React.ReactNode>({
   return (
     <ul {...props} data-id="list">
       {data.map((item, index) => {
-        const { key, ...liProps } = (
+        const { key, children, ...liProps } = (
           typeof li === 'function' ?
-            li(item) :
+            li(item, index) :
             li
         ) ?? {};
         return (
           <li
             key={key ?? index}
             {...liProps}>
-            {item}
+            {children !== undefined ? children : item}
           </li>
         );
       })}
