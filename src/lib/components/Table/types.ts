@@ -1,5 +1,4 @@
 import type React from "react";
-import type { TypeId } from "../../types";
 import type { ExcludeChildren } from "../types";
 
 export type Column<T> = {
@@ -11,7 +10,7 @@ export type TrProps = ExcludeChildren<React.HTMLAttributes<HTMLTableRowElement>>
 export type ThProps = React.ThHTMLAttributes<HTMLTableCellElement>;
 export type TBodyProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
 export type TdProps = React.HTMLAttributes<HTMLTableCellElement>;
-export type TableProps<T extends TypeId> = ExcludeChildren<React.TableHTMLAttributes<HTMLTableElement>> & {
+export type TableProps<T extends Record<any, any>> = ExcludeChildren<React.TableHTMLAttributes<HTMLTableElement>> & {
   columns: Column<T>[];
   rows: T[];
   thead?: TheadProps;

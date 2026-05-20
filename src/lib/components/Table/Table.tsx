@@ -1,7 +1,6 @@
-import type { TypeId } from "../../types";
 import type { TableProps } from "./types";
 
-export default function Table<T extends TypeId>({
+export default function Table<T extends Record<any, any>>({
   columns,
   rows,
   thead,
