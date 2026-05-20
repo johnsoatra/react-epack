@@ -1,14 +1,12 @@
 import path from 'path';
 import { defineConfig } from 'vite';
-import react, { reactCompilerPreset } from '@vitejs/plugin-react';
-import babel from '@rolldown/plugin-babel';
+import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [
     react(),
-    babel({ presets: [reactCompilerPreset()] }),
     svgr(),
     tailwindcss(),
   ],
@@ -19,7 +17,11 @@ export default defineConfig({
       fileName: () => 'index.js',
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: (id) =>
+        id === 'react' ||
+        id === 'react-dom' ||
+        id.startsWith('react/') ||
+        id.startsWith('react-dom/'),
     },
   },
 });
