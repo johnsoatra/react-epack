@@ -1,5 +1,5 @@
 import { useState } from "react";
-import List from "../components/List/List";
+import List from "../lib/components/List/List";
 
 export default function () {
   const [show, setShow] = useState(false);

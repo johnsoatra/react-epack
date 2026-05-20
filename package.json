@@ -28,7 +28,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "build:vite": "tsc -b && vite build",
-    "build:types": "rollup -c rollup.dts.config.ts",
+    "build:types": "rollup -c rollup.config.ts",
     "build": "npm run build:vite && npm run build:types"
   },
   "peerDependencies": {

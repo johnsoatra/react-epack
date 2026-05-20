@@ -1,5 +1,5 @@
-import Card from "../components/Card/Card";
-import Line from "../components/Line/Line";
+import Card from "../lib/components/Card/Card";
+import Line from "../lib/components/Line/Line";
 
 export default function () {
   return (
