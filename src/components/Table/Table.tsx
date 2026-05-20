@@ -1,4 +1,4 @@
-import type { TypeId } from "@/types";
+import type { TypeId } from "../../types";
 import type { TableProps } from "./types";
 
 export default function Table<T extends TypeId>({

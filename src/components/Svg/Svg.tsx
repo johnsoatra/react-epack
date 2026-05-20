@@ -1,7 +1,7 @@
 import type React from 'react';
 import type { SvgProps } from './types';
 
-const Icons = import.meta.glob('@/assets/svg/**/*.svg', {
+const Icons = import.meta.glob('../../assets/svg/**/*.svg', {
   eager: true,
   import: 'default',
   query: '?react',

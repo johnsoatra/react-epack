@@ -1,6 +1,6 @@
-import Button from "@/components/Button/Button";
-import Input from "@/components/Input/Input";
-import Popover from "@/components/Popover/Popover";
+import Button from "../components/Button/Button";
+import Input from "../components/Input/Input";
+import Popover from "../components/Popover/Popover";
 import { useEffect, useState } from "react";
 
 export default function TestPopover() {

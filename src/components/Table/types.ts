@@ -1,5 +1,5 @@
 import type React from "react";
-import type { TypeId } from "@/types";
+import type { TypeId } from "../../types";
 import type { ExcludeChildren } from "../types";
 
 export type Column<T> = {

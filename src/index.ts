@@ -1,7 +1,7 @@
 // import './index.css';
 
-export type { ButtonProps } from './components/Button/types';
-export { default as Button } from './components/Button/Button';
+export type { SelectProps } from './components/Select/types';
+export { default as Select } from './components/Select/Select';
 // export type { CardProps, InfoCardProps } from './components/Card/types';
 // export type { IconProps } from './components/Icon/types';
 // export type { ImageProps } from './components/Image/types';

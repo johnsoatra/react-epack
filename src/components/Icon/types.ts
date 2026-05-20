@@ -1,4 +1,4 @@
-import type { OneOf } from "@/types";
+import type { OneOf } from "../../types";
 import type { SvgProps } from "../Svg/types";
 import type { ImageProps } from "../Image/types";
 

@@ -1,19 +1,36 @@
 {
-  "name": "my-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-minibag",
+  "version": "0.1.0-dev.1",
+  "license": "MIT",
+  "author": "John Soatra",
+  "description": "A Library for React primitive elements",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohnSoatra/react-minibag"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:vite": "tsc -b && vite build",
+    "build:types": "rollup -c rollup.dts.config.ts",
+    "build": "npm run build:vite && npm run build:types"
   },
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "module": "./dist/index.js",
-  "files": [
-    "dist"
-  ],
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18"
@@ -30,11 +47,20 @@
     "@vitejs/plugin-react": "^6.0.1",
     "babel-plugin-react-compiler": "^1.0.0",
     "globals": "^17.6.0",
+    "rollup": "^4.60.4",
+    "rollup-plugin-dts": "^6.4.1",
     "tailwindcss": "^4.3.0",
     "typescript": "~6.0.2",
-    "unplugin-dts": "^1.0.1",
     "vite": "^8.0.12",
-    "vite-plugin-dts": "^5.0.1",
     "vite-plugin-svgr": "^5.2.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "primitives",
+    "elements",
+    "ui",
+    "components",
+    "unstyled",
+    "headless"
+  ]
 }
