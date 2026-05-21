@@ -2,6 +2,7 @@ import type { ButtonProps } from "./types";
 import Icon from "../Icon/Icon";
 
 export default function Button({
+  type,
   reactPrefix,
   prefix,
   suffix,
@@ -9,7 +10,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   return (
-    <button {...props} prefix={reactPrefix} data-re-button>
+    <button {...props} type={type ?? 'button'} prefix={reactPrefix} data-re-button>
       {prefix && <Icon {...prefix} />}
       {children}
       {suffix && <Icon {...suffix} />}

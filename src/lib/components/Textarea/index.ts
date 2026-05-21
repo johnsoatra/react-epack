@@ -1,2 +1,2 @@
-export type * from './types';
+export * from './types';
 export { default as Textarea } from './Textarea';

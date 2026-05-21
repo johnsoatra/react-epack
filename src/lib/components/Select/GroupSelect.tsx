@@ -4,6 +4,7 @@ import Icon from "../Icon/Icon";
 import { groupValue } from "../../utils";
 
 export default function GroupSelect<T extends StringSymbol>({
+  id,
   container,
   reactPrefix,
   prefix,
@@ -18,7 +19,7 @@ export default function GroupSelect<T extends StringSymbol>({
       {prefix && <Icon {...prefix} />}
       <select
         {...props}
-        name={props.id}
+        name={id}
         prefix={reactPrefix}
         data-re-select>
         {groupValue(options).map(({ group, value }, groupIndex) => {

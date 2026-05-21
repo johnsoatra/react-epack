@@ -2,6 +2,7 @@ import type { SelectProps } from "./types";
 import Icon from "../Icon/Icon";
 
 export default function Select({
+  id,
   container,
   reactPrefix,
   prefix,
@@ -15,7 +16,7 @@ export default function Select({
       {prefix && <Icon {...prefix} />}
       <select
         {...props}
-        name={props.id}
+        name={id}
         prefix={reactPrefix}
         data-re-select>
         {options.map((data, index) => {

@@ -15,5 +15,5 @@ export type InputProps = ExcludeChildren<
   suffix?: IconProps;
 };
 export type PasswordInputProps = Omit<InputProps, 'type'> & {
-  show: boolean;
+  show?: boolean;
 };

@@ -6,10 +6,7 @@ export default function Svg({
   reactName,
   ...props
 }: SvgProps) {
-  const Icon = Object
-    .entries(getConfig()?.svgList ?? {})
-    .find(([key]) => key === name)
-    ?.[1];
+  const Icon = getConfig()?.svgList?.[name];
 
   if (!Icon) {
     console.error(`Could not find svg: ${name}`);

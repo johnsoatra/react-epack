@@ -3,15 +3,17 @@ import Label from "../Label/Label";
 import Input from "../Input/Input";
 
 export default function Switch({
+  id,
   label,
   slider,
   sliderBall,
   ...props
 }: SwitchProps) {
   return (
-    <Label {...label} htmlFor={props.id} data-re-switch>
+    <Label {...label} htmlFor={id} data-re-switch>
       <Input
         {...props}
+        id={id}
         type={'checkbox'}
         suffix={{
           node: <>
