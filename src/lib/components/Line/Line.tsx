@@ -5,6 +5,6 @@ export default function Line({
   ...props
 }: LineProps) {
   return (
-    <div {...props} data-re-orientation={orientation} data-re-line />
+    <div {...props} data-re-orientation={orientation ?? ""} data-re-line="" />
   );
 }

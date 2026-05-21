@@ -10,15 +10,15 @@ export default function Switch({
   ...props
 }: SwitchProps) {
   return (
-    <Label {...label} htmlFor={id} data-re-switch>
+    <Label {...label} htmlFor={id} data-re-switch="">
       <Input
         {...props}
         id={id}
         type={'checkbox'}
         suffix={{
           node: <>
-            <div {...slider} data-re-slider>
-              <div {...sliderBall} data-re-slider-ball />
+            <div {...slider} data-re-slider="">
+              <div {...sliderBall} data-re-slider-ball="" />
             </div>
           </>
         }}

@@ -14,6 +14,6 @@ export default function Svg({
   }
 
   return (
-    <Icon {...props} name={reactName} data-re-svg />
+    <Icon {...props} name={reactName} data-re-svg="" />
   );
 }

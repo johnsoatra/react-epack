@@ -13,9 +13,9 @@ export default function Table<T extends Record<StringNumber, any>>({
   ...props
 }: TableProps<T>) {
   return (
-    <table {...props} data-re-table>
-      <thead {...thead} data-re-thead>
-        <tr {...theadTr} data-re-tr>
+    <table {...props} data-re-table="">
+      <thead {...thead} data-re-thead="">
+        <tr {...theadTr} data-re-tr="">
           {columns.map((column, index) => {
             const { key, children, ...thProps } = (
               typeof th === 'function' ?
@@ -26,14 +26,14 @@ export default function Table<T extends Record<StringNumber, any>>({
               <th
                 key={key ?? index}
                 {...thProps}
-                data-re-th>
+                data-re-th="">
                 {children !== undefined ? children : column.label}
               </th>
             );
           })}
         </tr>
       </thead>
-      <tbody {...tbody} data-re-tbody>
+      <tbody {...tbody} data-re-tbody="">
         {rows.map((row, rowIndex) => {
           const { key, ...trProps } = (
             typeof tbodyTr === 'function' ?
@@ -44,7 +44,7 @@ export default function Table<T extends Record<StringNumber, any>>({
             <tr
               key={key ?? rowIndex}
               {...trProps}
-              data-re-tr>
+              data-re-tr="">
               {columns.map(((column, columnIndex) => {
                 const { key, children, ...tdProps } = (
                   typeof td === 'function' ?
@@ -60,7 +60,7 @@ export default function Table<T extends Record<StringNumber, any>>({
                   <td
                     key={key ?? columnIndex}
                     {...tdProps}
-                    data-re-td>
+                    data-re-td="">
                     {children !== undefined ? children : row[column.index]}
                   </td>
                 );

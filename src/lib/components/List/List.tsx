@@ -7,7 +7,7 @@ export default function List<T extends React.ReactNode>({
   ...props
 }: ListProps<T>) {
   return (
-    <ul {...props} data-re-list>
+    <ul {...props} data-re-list="">
       {data.map((item, index) => {
         const { key, children, ...liProps } = (
           typeof li === 'function' ?
@@ -18,7 +18,7 @@ export default function List<T extends React.ReactNode>({
           <li
             key={key ?? index}
             {...liProps}
-            data-re-li>
+            data-re-li="">
             {children !== undefined ? children : item}
           </li>
         );

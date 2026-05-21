@@ -2,6 +2,6 @@ import type { CardProps } from "./types";
 
 export default function Card(props: CardProps) {
   return (
-    <div {...props} data-re-card />
+    <div {...props} data-re-card="" />
   );
 }

@@ -7,7 +7,7 @@ export default function OrderList<T extends React.ReactNode>({
   ...props
 }: OrderListProps<T>) {
   return (
-    <ol {...props} data-re-order-list>
+    <ol {...props} data-re-order-list="">
       {data.map((item, index) => {
         const { key, children, ...liProps } = (
           typeof li === 'function' ?
@@ -18,7 +18,7 @@ export default function OrderList<T extends React.ReactNode>({
           <li
             key={key ?? index}
             {...liProps}
-            data-re-li>
+            data-re-li="">
             {children !== undefined ? children : item}
           </li>
         );

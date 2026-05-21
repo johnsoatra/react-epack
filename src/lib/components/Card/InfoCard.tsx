@@ -14,7 +14,7 @@ export default function InfoCard({
   return (
     <Card {...props} title={htmlTitle}>
       <Icon {...icon} />
-      <div {...info} data-re-info>
+      <div {...info} data-re-info="">
         {title}
         {description}
       </div>

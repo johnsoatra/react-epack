@@ -15,13 +15,13 @@ export default function GroupSelect<T extends StringSymbol>({
   ...props
 }: GroupSelectProps<T>) {
   return (
-    <div {...container} data-re-c-group-select>
+    <div {...container} data-re-c-group-select="">
       {prefix && <Icon {...prefix} />}
       <select
         {...props}
         name={id}
         prefix={reactPrefix}
-        data-re-select>
+        data-re-select="">
         {groupValue(options).map(({ group, value }, groupIndex) => {
           const { key, label, ...optgroupProps } = (
             typeof optgroup === 'function' ?
@@ -33,7 +33,7 @@ export default function GroupSelect<T extends StringSymbol>({
               key={key ?? groupIndex}
               label={label ?? String(group)}
               {...optgroupProps}
-              data-re-optgroup>
+              data-re-optgroup="">
               {value.map((data, optionIndex) => {
                 const { key, value, children, ...optionProps } = (
                   typeof option === 'function' ?
@@ -50,7 +50,7 @@ export default function GroupSelect<T extends StringSymbol>({
                     key={key ?? optionIndex}
                     {...optionProps}
                     value={value ?? data.value}
-                    data-re-option>
+                    data-re-option="">
                     {children !== undefined ? children : data.label}
                   </option>
                 );
