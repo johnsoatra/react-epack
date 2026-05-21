@@ -3,7 +3,7 @@ import type { StringNumber } from "../../types";
 import type { ExcludeChildren, IncludeKey } from "../types";
 
 export type Column<K extends StringNumber> = {
-  title: React.ReactNode;
+  label: React.ReactNode;
   index: K;
 };
 

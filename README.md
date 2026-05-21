@@ -1,1 +1,1 @@
-## React MiniBag
+## React EPack

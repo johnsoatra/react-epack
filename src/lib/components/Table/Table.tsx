@@ -26,7 +26,7 @@ export default function Table<T extends Record<StringNumber, any>>({
               <th
                 key={key ?? index}
                 {...thProps}>
-                {children !== undefined ? children : column.title}
+                {children !== undefined ? children : column.label}
               </th>
             );
           })}
