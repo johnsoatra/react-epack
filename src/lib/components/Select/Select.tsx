@@ -16,6 +16,7 @@ export default function Select({
       {prefix && <Icon {...prefix} />}
       <select
         {...props}
+        id={id}
         name={id}
         prefix={reactPrefix}
         data-re-select="">

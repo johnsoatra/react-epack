@@ -12,7 +12,7 @@ export default function Input({
   return (
     <div {...container} data-re-c-input="">
       {prefix && <Icon {...prefix} />}
-      <input {...props} name={id} prefix={reactPrefix} data-re-input="" />
+      <input {...props} id={id} name={id} prefix={reactPrefix} data-re-input="" />
       {suffix && <Icon {...suffix} />}
     </div>
   );

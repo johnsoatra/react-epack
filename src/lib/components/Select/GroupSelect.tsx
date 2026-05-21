@@ -19,6 +19,7 @@ export default function GroupSelect<T extends StringSymbol>({
       {prefix && <Icon {...prefix} />}
       <select
         {...props}
+        id={id}
         name={id}
         prefix={reactPrefix}
         data-re-select="">

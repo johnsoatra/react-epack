@@ -12,7 +12,7 @@ export default function Textarea({
   return (
     <div {...container} data-re-c-textarea="">
       {prefix && <Icon {...prefix} />}
-      <textarea {...props} name={id} prefix={reactPrefix} data-re-textarea="" />
+      <textarea {...props} id={id} name={id} prefix={reactPrefix} data-re-textarea="" />
       {suffix && <Icon {...suffix} />}
     </div>
   );
