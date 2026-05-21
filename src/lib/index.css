@@ -7,7 +7,8 @@
 
   [data-re-c-input],
   [data-re-c-textarea],
-  [data-re-c-select] {
+  [data-re-c-select],
+  [data-re-c-group-select] {
     @apply flex items-center gap-x-1 rounded-sm border border-gray-300 bg-gray-50;
     @apply focus-within:border-gray-400;
 

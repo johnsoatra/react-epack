@@ -12,7 +12,8 @@ export default function Svg({
     ?.[1];
 
   if (!Icon) {
-    throw Error(`Could not find svg: ${name}`);
+    console.error(`Could not find svg: ${name}`);
+    return null;
   }
 
   return (
