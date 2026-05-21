@@ -19,14 +19,14 @@ export default function Select({
         prefix={reactPrefix}
         data-re-select>
         {options.map((data, index) => {
-          const { children, ...optionProps } = (
+          const { key, children, ...optionProps } = (
             typeof option === 'function' ?
               option(data, index) :
               option
           ) ?? {};
           return (
             <option
-              key={data.value}
+              key={key ?? index}
               {...optionProps}
               value={data.value}
               data-re-option>

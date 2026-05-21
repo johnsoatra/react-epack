@@ -1,7 +1,5 @@
 export type StringNumber = string | number;
 
 export type OneOf<T> = {
-  [K in keyof T]:
-  Required<Pick<T, K>> &
-  Partial<Record<Exclude<keyof T, K>, never>>;
+  [K in keyof T]: Required<Pick<T, K>> & Partial<Record<Exclude<keyof T, K>, never>>;
 }[keyof T];

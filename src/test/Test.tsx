@@ -1,6 +1,6 @@
-import { Button, Input, Switch, Table, type ButtonProps } from "./lib";
+import { Button, Input, Switch, Table, type ButtonProps } from "../lib";
 
-export default function App() {
+export default function () {
   return (
     // <Button>Hello world</Button>
     <div className="flex flex-col items-start">

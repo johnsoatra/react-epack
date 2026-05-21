@@ -1,12 +1,12 @@
 import type React from "react";
-import type { DivProps, ExcludeChildren, InputExcludedAttributes } from "../types";
+import type { DivProps, ExcludeChildren, IncludeKey, InputExcludedAttributes } from "../types";
 import type { IconProps } from "../Icon/types";
 
 export type Option = {
   label: React.ReactNode;
   value: any;
 }
-export type OptionProps = Omit<React.OptionHTMLAttributes<HTMLOptionElement>, 'value'>;
+export type OptionProps = IncludeKey<Omit<React.OptionHTMLAttributes<HTMLOptionElement>, 'value'>>;
 export type SelectProps = ExcludeChildren<
   Omit<
     React.SelectHTMLAttributes<HTMLSelectElement>,

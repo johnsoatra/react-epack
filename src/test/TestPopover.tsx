@@ -3,7 +3,7 @@ import Input from "../lib/components/Input/Input";
 import Popover from "../lib/components/Popover/Popover";
 import { useEffect, useState } from "react";
 
-export default function TestPopover() {
+export default function () {
   const [show, setShow] = useState(false);
   useEffect(() => {
     function handleClick(e: PointerEvent) {
@@ -12,7 +12,7 @@ export default function TestPopover() {
     }
     document.body.addEventListener('click', handleClick);
     return () => {
-     document.body.removeEventListener('click', handleClick); 
+      document.body.removeEventListener('click', handleClick);
     }
   }, []);
   return (
@@ -23,7 +23,7 @@ export default function TestPopover() {
           e.preventDefault();
           e.stopPropagation();
           setShow(true);
-        }}/>
+        }} />
       }>
       <p>Hello world</p>
       <p>Hello world</p>
