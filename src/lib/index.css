@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@layer react-epack {
+@layer components {
   [data-re-button] {
     @apply flex items-center gap-x-1 rounded-sm p-1 cursor-pointer;
   }
@@ -9,7 +9,7 @@
   [data-re-c-textarea],
   [data-re-c-select] {
     @apply flex items-center gap-x-1 rounded-sm border border-gray-300 bg-gray-50;
-    @apply focus-within:border-gray-400 focus-within:ring-2 focus-within:ring-gray-100;
+    @apply focus-within:border-gray-400;
 
     [data-re-input],
     [data-re-textarea],
@@ -23,7 +23,7 @@
   }
 
   [data-re-table] {
-    @apply w-full border border-gray-300 rounded-2xl;
+    @apply w-full rounded-sm border border-gray-300;
     @apply border-separate border-spacing-0;
 
     [data-re-th],
@@ -42,7 +42,7 @@
   }
 
   [data-re-card] {
-    @apply flex items-center gap-x-1.5 border border-gray-300 p-2 rounded-sm;
+    @apply flex items-center gap-x-1.5 rounded-sm border border-gray-300 p-2;
   }
 
   [data-re-switch] {
@@ -77,7 +77,7 @@
     @apply relative;
 
     [data-re-content] {
-      @apply absolute cursor-default top-[calc(100%+4px)] left-0 border border-gray-300 rounded-sm p-1;
+      @apply absolute top-[calc(100%+2px)] left-0 rounded-sm border border-gray-300 p-1 cursor-default;
     }
   }
 
