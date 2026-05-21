@@ -7,9 +7,9 @@ export default function Popover({
   ...props
 }: PopoverProps) {
   return (
-    <div {...container} data-id="popover">
+    <div {...container} data-re-popover>
       {target}
-      {show && <div {...props} data-id="content" />}
+      {show && <div {...props} data-re-content />}
     </div>
   );
 }

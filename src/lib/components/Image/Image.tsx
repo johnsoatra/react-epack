@@ -4,6 +4,6 @@ export default function Image({
   ...props
 }: ImageProps) {
   return (
-    <img {...props} />
+    <img {...props} data-re-image />
   );
 }

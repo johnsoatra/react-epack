@@ -11,12 +11,13 @@ export default function Select({
   ...props
 }: SelectProps) {
   return (
-    <div {...container} data-id="div-select">
+    <div {...container} data-re-c-select>
       {prefix && <Icon {...prefix} />}
       <select
         {...props}
         name={props.id}
-        prefix={reactPrefix}>
+        prefix={reactPrefix}
+        data-re-select>
         {options.map((data, index) => {
           const { children, ...optionProps } = (
             typeof option === 'function' ?
@@ -27,7 +28,8 @@ export default function Select({
             <option
               key={data.value}
               {...optionProps}
-              value={data.value}>
+              value={data.value}
+              data-re-option>
               {children !== undefined ? children : data.label}
             </option>
           );

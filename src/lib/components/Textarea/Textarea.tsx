@@ -9,9 +9,9 @@ export default function Textarea({
   ...props
 }: TextareaProps) {
   return (
-    <div {...container} data-id="div-textarea">
+    <div {...container} data-re-c-textarea>
       {prefix && <Icon {...prefix} />}
-      <textarea {...props} name={props.id} prefix={reactPrefix} />
+      <textarea {...props} name={props.id} prefix={reactPrefix} data-re-textarea />
       {suffix && <Icon {...suffix} />}
     </div>
   );

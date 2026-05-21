@@ -1,89 +1,91 @@
 @import "tailwindcss";
 
-@layer components {
-  button[data-id='button'] {
+@layer react-epack {
+  [data-re-button] {
     @apply flex items-center gap-x-1 rounded-sm p-1 cursor-pointer;
   }
 
-  div[data-id="div-input"],
-  div[data-id="div-textarea"],
-  div[data-id="div-select"] {
-    @apply flex items-center gap-x-1 rounded-sm border bg-white overflow-hidden;
+  [data-re-c-input],
+  [data-re-c-textarea],
+  [data-re-c-select] {
+    @apply flex items-center gap-x-1 rounded-sm border border-gray-300 bg-gray-50;
     @apply focus-within:border-gray-400 focus-within:ring-2 focus-within:ring-gray-100;
 
-    &>input,
-    &>textarea,
-    &>select {
+    [data-re-input],
+    [data-re-textarea],
+    [data-re-select] {
       @apply flex-1 p-2 outline-none;
     }
 
-    &>textarea {
+    [data-re-textarea] {
       @apply resize-none;
     }
   }
 
-  table[data-id="table"] {
-    @apply w-full border rounded-2xl overflow-hidden;
+  [data-re-table] {
+    @apply w-full border border-gray-300 rounded-2xl;
     @apply border-separate border-spacing-0;
 
-    &>thead>tr>th,
-    &>tbody>tr>td {
+    [data-re-th],
+    [data-re-td] {
       @apply text-start p-1.5;
-      @apply border-r border-t;
+      @apply border-r border-t border-gray-300;
 
       &:last-child {
         @apply border-r-0;
       }
     }
 
-    &>thead>tr>th {
+    [data-re-th] {
       @apply border-t-0;
     }
   }
 
-  div[data-id="card"] {
-    @apply flex items-center gap-x-1.5 border p-2 rounded-sm;
+  [data-re-card] {
+    @apply flex items-center gap-x-1.5 border border-gray-300 p-2 rounded-sm;
   }
 
-  label[data-id="label-switch"] {
-    &>div[data-id="div-input"] {
+  [data-re-switch] {
+    [data-re-c-input] {
       @apply border-0 bg-transparent px-0;
 
-      &>input {
+      [data-re-input] {
         @apply hidden;
       }
 
-      &>div[data-id="slider"] {
-        @apply relative w-11.5 h-6 rounded-full bg-gray-300 cursor-pointer;
+      [data-re-slider] {
+        @apply transition-colors relative w-11.5 h-6 rounded-full bg-gray-300 cursor-pointer;
+
+        [data-re-slider-ball] {
+          @apply transition-all absolute top-px left-px h-[calc(100%-2px)] aspect-square rounded-full bg-gray-50;
+        }
       }
 
-      &>div[data-id="slider"]>div[data-id="slider-ball"] {
-        @apply transition-all absolute top-px left-px h-[calc(100%-2px)] aspect-square rounded-full bg-white;
-      }
+      [data-re-input]:checked {
+        &~[data-re-slider] {
+          @apply bg-blue-500;
 
-      &>input:checked~div[data-id="slider"] {
-        @apply bg-blue-500;
-      }
-
-      &>input:checked~div[data-id="slider"]>div[data-id="slider-ball"] {
-        @apply left-[calc(100%-1px)] -translate-x-full;
+          [data-re-slider-ball] {
+            @apply left-[calc(100%-1px)] -translate-x-full;
+          }
+        }
       }
     }
   }
 
-  div[data-id="popover"] {
+  [data-re-popover] {
     @apply relative;
 
-    &>div[data-id="content"] {
-      @apply absolute cursor-default top-[calc(100%+4px)] left-0 border rounded-sm p-1;
+    [data-re-content] {
+      @apply absolute cursor-default top-[calc(100%+4px)] left-0 border border-gray-300 rounded-sm p-1;
     }
   }
 
-  div[data-id="line"] {
+  [data-re-line] {
     @apply w-full h-[0.5px] bg-gray-300;
 
-    &[data-orientation="vertical"] {
-      @apply w-[0.5px] h-auto;
+    &[data-re-orientation="vertical"] {
+      @apply w-[0.5px] h-auto self-stretch;
     }
   }
 }

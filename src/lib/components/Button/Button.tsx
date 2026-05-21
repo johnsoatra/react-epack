@@ -9,7 +9,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   return (
-    <button {...props} prefix={reactPrefix} data-id="button">
+    <button {...props} prefix={reactPrefix} data-re-button>
       {prefix && <Icon {...prefix} />}
       {children}
       {suffix && <Icon {...suffix} />}

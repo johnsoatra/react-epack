@@ -9,9 +9,9 @@ export default function Input({
   ...props
 }: InputProps) {
   return (
-    <div {...container} data-id="div-input">
+    <div {...container} data-re-c-input>
       {prefix && <Icon {...prefix} />}
-      <input {...props} name={props.id} prefix={reactPrefix} />
+      <input {...props} name={props.id} prefix={reactPrefix} data-re-input />
       {suffix && <Icon {...suffix} />}
     </div>
   );
