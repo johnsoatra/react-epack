@@ -4,9 +4,11 @@ export default function () {
   return (
     // <Button>Hello world</Button>
     <div className="flex flex-col items-start">
+      <Button>sdfdsf</Button>
       <GroupSelect
         id="test"
         options={{
+          '1': [{ label: 'f', value: 2 }],
           age: [
             { label: 1, value: 1 },
             { label: 2, value: 2 },
@@ -19,8 +21,8 @@ export default function () {
         optgroup={(group) => ({
           label: group === 'age' ? 'Age' : 'Gender',
         })}
-        option={({ option }) => ({
-          // key: 1,
+        option={({ option, group }) => ({
+          'data-test': group,
           className: option.value === 'male' ? 'text-red-400' : '',
           children: option.value === 'male' ? '11' : option.label,
         })}
