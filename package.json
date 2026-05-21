@@ -1,13 +1,13 @@
 {
-  "name": "react-minibag",
-  "version": "0.1.0-dev.2",
+  "name": "react-epack",
+  "version": "0.1.0-alpha.1",
   "license": "MIT",
   "author": "John Soatra",
   "description": "A Library for React primitive elements",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JohnSoatra/react-minibag"
+    "url": "https://github.com/JohnSoatra/react-epack"
   },
   "exports": {
     ".": {

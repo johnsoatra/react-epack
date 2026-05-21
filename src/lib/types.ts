@@ -1,3 +1,5 @@
+export type StringNumber = string | number;
+
 export type OneOf<T> = {
   [K in keyof T]:
   Required<Pick<T, K>> &

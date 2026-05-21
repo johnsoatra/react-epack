@@ -1,6 +1,7 @@
+import type { StringNumber } from "../../types";
 import type { TableProps } from "./types";
 
-export default function Table<T extends Record<any, any>>({
+export default function Table<T extends Record<StringNumber, any>>({
   columns,
   rows,
   thead,
@@ -16,14 +17,14 @@ export default function Table<T extends Record<any, any>>({
       <thead {...thead}>
         <tr {...theadTr}>
           {columns.map((column, index) => {
-            const { children, ...thProps } = (
+            const { key, children, ...thProps } = (
               typeof th === 'function' ?
                 th(column, index) :
                 th
             ) ?? {};
             return (
               <th
-                key={String(column.key)}
+                key={key ?? index}
                 {...thProps}>
                 {children !== undefined ? children : column.title}
               </th>
@@ -33,15 +34,17 @@ export default function Table<T extends Record<any, any>>({
       </thead>
       <tbody {...tbody}>
         {rows.map((row, rowIndex) => {
-          const trProps = typeof tbodyTr === 'function' ?
-            tbodyTr(row, rowIndex) :
-            tbodyTr;
+          const { key, ...trProps } = (
+            typeof tbodyTr === 'function' ?
+              tbodyTr(row, rowIndex) :
+              tbodyTr
+          ) ?? {};
           return (
             <tr
-              key={row.id}
+              key={key ?? rowIndex}
               {...trProps}>
               {columns.map(((column, columnIndex) => {
-                const { children, ...tdProps } = (
+                const { key, children, ...tdProps } = (
                   typeof td === 'function' ?
                     td({
                       row,
@@ -53,9 +56,9 @@ export default function Table<T extends Record<any, any>>({
                 ) ?? {};
                 return (
                   <td
-                    key={String(column.key)}
+                    key={key ?? columnIndex}
                     {...tdProps}>
-                    {children !== undefined ? children : (row[column.key] as any)}
+                    {children !== undefined ? children : row[column.index]}
                   </td>
                 );
               }))}

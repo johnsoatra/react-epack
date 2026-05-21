@@ -1,26 +1,37 @@
 import type React from "react";
-import type { ExcludeChildren } from "../types";
+import type { StringNumber } from "../../types";
+import type { ExcludeChildren, IncludeKey } from "../types";
 
-export type Column<T> = {
-  key: keyof T;
+export type Column<K extends StringNumber> = {
   title: React.ReactNode;
+  index: K;
 };
-export type TheadProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
+
 export type TrProps = ExcludeChildren<React.HTMLAttributes<HTMLTableRowElement>>;
-export type ThProps = React.ThHTMLAttributes<HTMLTableCellElement>;
-export type TBodyProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
-export type TdProps = React.HTMLAttributes<HTMLTableCellElement>;
-export type TableProps<T extends Record<any, any>> = ExcludeChildren<React.TableHTMLAttributes<HTMLTableElement>> & {
-  columns: Column<T>[];
+
+export type TheadProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
+export type TbodyProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
+
+export type TheadTrProps = TrProps;
+export type TbodyTrProps = IncludeKey<TrProps>;
+
+export type ThProps = IncludeKey<React.ThHTMLAttributes<HTMLTableCellElement>>;
+export type TdProps = IncludeKey<React.HTMLAttributes<HTMLTableCellElement>>;
+
+export type TableProps<
+  T extends Record<StringNumber, any>,
+  K extends Extract<keyof T, StringNumber> = Extract<keyof T, StringNumber>
+> = ExcludeChildren<React.TableHTMLAttributes<HTMLTableElement>> & {
+  columns: Column<K>[];
   rows: T[];
   thead?: TheadProps;
-  theadTr?: TrProps;
-  th?: ThProps | ((column: Column<T>, index: number) => ThProps);
-  tbody?: TBodyProps;
-  tbodyTr?: TrProps | ((row: T, index: number) => TrProps);
+  tbody?: TbodyProps;
+  theadTr?: TheadTrProps;
+  tbodyTr?: TbodyTrProps | ((row: T, index: number) => TbodyTrProps);
+  th?: ThProps | ((column: Column<K>, index: number) => ThProps);
   td?: TdProps | ((data: {
     row: T;
-    column: Column<T>;
+    column: Column<K>;
     rowIndex: number;
     columnIndex: number;
   }) => TdProps);
