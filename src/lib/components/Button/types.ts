@@ -1,13 +1,15 @@
-import type React from "react";
-import type { Affixes, ComProps, More, NoChild, WithClass } from "../../types";
+import type { Affixes, ComProps, NoChild, Pack } from "../../types";
 import type { IconProps } from "../Icon";
 
-export type ButtonProps = Affixes & WithClass<{
-  type?: ComProps.Button['type'];
-  reactPrefix?: string;
-  children?: React.ReactNode;
-}> & More<ComProps.Button, 'type' | 'prefix'>;
+export type ButtonProps = Pack<
+  ComProps.Button,
+  Affixes
+>;
 
-export type IconButtonProps = NoChild<ButtonProps> & {
-  icon: IconProps;
-}
+export type IconButtonProps = Pack<
+  NoChild<ButtonProps>,
+  {
+    icon: IconProps;
+  }
+>;
+

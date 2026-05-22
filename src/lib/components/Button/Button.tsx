@@ -3,19 +3,17 @@ import Icon from "../Icon/Icon";
 
 export default function Button({
   type,
-  reactPrefix,
-  prefix,
-  suffix,
   children,
-  className,
-  more,
+  pack: {
+    prefix,
+    suffix,
+  } = {},
+  ...props
 }: ButtonProps) {
   return (
     <button
-      {...more}
+      {...props}
       type={type ?? 'button'}
-      prefix={reactPrefix}
-      className={className}
       data-re-button="">
       {prefix && <Icon {...prefix} />}
       {children}

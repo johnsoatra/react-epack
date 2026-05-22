@@ -1,12 +1,15 @@
-import type { Affixes, ComProps, Excludes, More, Union, WithClass } from "../../types";
+import type { Affixes, ComProps, Excludes, NoChild, Pack } from "../../types";
 
-export type InputProps = Affixes & WithClass<{
-  id: string;
-  type?: ComProps.Input['type'];
-  reactPrefix?: string;
-  container?: WithClass<ComProps.Div>;
-}> & More<ComProps.Input, Union.IDName | 'prefix' | 'type'>;
+export type InputProps = Pack<
+  NoChild<ComProps.Input>,
+  Affixes & {
+    container: ComProps.Div;
+  }
+>;
 
-export type PasswordInputProps = Excludes<InputProps, 'type'> & {
-  show?: boolean;
-};
+export type PasswordInputProps = Pack<
+  Excludes<InputProps, 'type'>,
+  {
+    show: boolean;
+  }
+>;

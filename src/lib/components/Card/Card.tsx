@@ -1,16 +1,10 @@
 import type { CardProps } from "./types";
 
 export default function Card({
-  children,
-  className,
-  more,
+  pack,
+  ...props
 }: CardProps) {
   return (
-    <div
-      {...more}
-      children={children}
-      className={className}
-      data-re-card=""
-    />
+    <div {...props} data-re-card="" />
   );
 }

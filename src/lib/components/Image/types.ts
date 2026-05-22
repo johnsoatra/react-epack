@@ -1,6 +1,6 @@
-import type { ComProps, More, WithClass } from "../../types";
+import type { ComProps, NoChild, Pack } from "../../types";
 
-export type ImageProps = WithClass<{
-  alt: string;
-  src: string | undefined;
-}> & More<ComProps.Img, 'alt' | 'src'>;
+export type ImageProps = Pack<
+  NoChild<ComProps.Img>,
+  {}
+>;

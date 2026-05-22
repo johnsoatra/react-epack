@@ -3,12 +3,14 @@ import Button from "./Button";
 import Icon from "../Icon/Icon";
 
 export default function IconButton({
-  icon,
+  pack: {
+    icon,
+  } = {},
   ...props
 }: IconButtonProps) {
   return (
     <Button {...props}>
-      <Icon {...icon} />
+      {icon && <Icon {...icon} />}
     </Button>
   );
 }

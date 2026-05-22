@@ -1,18 +1,10 @@
 import type { LabelProps } from "./types";
 
 export default function Label({
-  htmlFor,
-  children,
-  className,
-  more
+  pack,
+  ...props
 }: LabelProps) {
   return (
-    <label
-      {...more}
-      htmlFor={htmlFor}
-      children={children}
-      className={className}
-      data-re-label=""
-    />
+    <label {...props} data-re-label="" />
   );
 }

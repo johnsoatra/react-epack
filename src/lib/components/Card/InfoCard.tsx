@@ -3,20 +3,18 @@ import Card from "./Card";
 import Icon from "../Icon/Icon";
 
 export default function InfoCard({
-  htmlTitle,
-  icon,
-  title,
-  description,
-  info,
-  suffix,
-  className,
-  more,
+  pack: {
+    icon,
+    title,
+    description,
+    info,
+    suffix,
+  } = {},
+  ...props
 }: InfoCardProps) {
   return (
-    <Card
-      more={{ ...more, title: htmlTitle }}
-      className={className}>
-      <Icon {...icon} />
+    <Card {...props}>
+      {icon && <Icon {...icon} />}
       <div {...info} data-re-info="">
         {title}
         {description}
