@@ -12,10 +12,13 @@ export default function Switch({
 }: SwitchProps) {
   return (
     <Label
-      more={{ ...more, id: htmlId }}
+      more={{
+        ...more,
+        id: htmlId,
+        ['data-re-switch' as any]: '',
+      }}
       htmlFor={id}
-      className={className}
-      data-re-switch="">
+      className={className}>
       <input
         {...input}
         id={id}

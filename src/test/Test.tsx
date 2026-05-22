@@ -1,10 +1,16 @@
 import { Button, GroupSelect, Input, Switch, Table, type ButtonProps } from "../lib";
+import TestCard from "./TestCard";
+import TestLine from "./TestLine";
+import TestPopover from "./TestPopover";
 
 export default function () {
   return (
     // <Button>Hello world</Button>
     <div className="flex flex-col items-start">
-      <Button>sdfdsf</Button>
+      <TestCard />
+      <TestLine />
+      <TestPopover />
+      <Button className="border border-gray-300">sdfdsf</Button>
       <GroupSelect
         id="test"
         options={{
@@ -27,7 +33,7 @@ export default function () {
           children: option.value === 'male' ? '11' : option.label,
         })}
       />
-      <Switch id="test" />
+      <Switch id="f" />
       {/* <Input id="test" placeholder="test"/> */}
       <Table
         columns={[

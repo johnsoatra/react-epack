@@ -20,7 +20,7 @@ export default function () {
       show={show}
       target={
         <Input
-          id="test"
+          id="inputf"
           more={{
             placeholder: "test",
             onClick(e) {
