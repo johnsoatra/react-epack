@@ -1,15 +1,15 @@
-import type { Affixes, ComProps, Excludes, NoChild, Pack } from "../../types";
+import type { Affixes, ComProps, Excludes, NoChild, Pack, Require } from "../../types";
 
 export type InputProps = Pack<
-  NoChild<ComProps.Input>,
+  Require<NoChild<ComProps.Input>, 'id' | 'name'>,
   Affixes & {
-    container: ComProps.Div;
+    container?: NoChild<ComProps.Div>;
   }
 >;
 
 export type PasswordInputProps = Pack<
   Excludes<InputProps, 'type'>,
   {
-    show: boolean;
+    show?: boolean;
   }
 >;

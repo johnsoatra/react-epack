@@ -1,7 +1,33 @@
 import type React from "react";
 import type { IconProps } from "./components";
 
+export type Option = {
+  label: React.ReactNode;
+  value: any;
+}
+
+export type Column<K extends Union.StringNumber> = {
+  label: React.ReactNode;
+  index: K;
+};
+
 export type Excludes<T, K extends keyof NonNullable<T>> = Omit<T, K>;
+
+type RequiredKeys<T> = {
+  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
+}[keyof T];
+
+export type Require<T, K extends keyof T> = Omit<T, K> & {
+  [P in K]-?: Required<T[P]>;
+}
+
+export type OptionalProp<T, K extends string> = RequiredKeys<T> extends never ?
+  {
+    [P in K]?: T | undefined;
+  } :
+  {
+    [P in K]: T;
+  };
 
 export type OneOf<T> = {
   [K in keyof T]: Required<Pick<T, K>> & Partial<Record<Exclude<keyof T, K>, never>>;
@@ -22,13 +48,10 @@ export type More<
   more?: K extends undefined ? T : Omit<T, NonNullable<K>>;
 };
 
-export type Pack<T, P> = Omit<T, 'pack'> & {
-  pack?: Partial<(
-    T extends { pack: any } ?
-    T['pack'] :
-    {}
-  ) & P>;
-};
+export type Pack<T, P> = Omit<T, 'pack'> & OptionalProp<
+  (T extends { pack: any } ? Omit<T['pack'], keyof P> : {}) & P,
+  'pack'
+>;
 
 export namespace Union {
   export type StringNumber = string | number;

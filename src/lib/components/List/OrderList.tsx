@@ -2,13 +2,14 @@ import type React from "react";
 import type { OrderListProps } from "./types";
 
 export default function OrderList<T extends React.ReactNode>({
-  data,
-  li,
-  className,
-  more,
+  pack: {
+    data,
+    li,
+  },
+  ...props
 }: OrderListProps<T>) {
   return (
-    <ol {...more} className={className} data-re-order-list="">
+    <ol {...props} data-re-order-list="">
       {data.map((item, index) => {
         const { key, children, ...liProps } = (
           typeof li === 'function' ?

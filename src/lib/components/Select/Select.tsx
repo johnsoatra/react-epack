@@ -2,26 +2,19 @@ import type { SelectProps } from "./types";
 import Icon from "../Icon/Icon";
 
 export default function Select({
-  id,
-  container,
-  reactPrefix,
-  prefix,
-  suffix,
-  options,
-  option,
-  className,
-  more,
+  pack: {
+    options,
+    option,
+    prefix,
+    suffix,
+    container,
+  },
+  ...props
 }: SelectProps) {
   return (
     <div {...container} data-re-c-select="">
       {prefix && <Icon {...prefix} />}
-      <select
-        {...more}
-        id={id}
-        name={id}
-        prefix={reactPrefix}
-        className={className}
-        data-re-select="">
+      <select {...props} data-re-select="">
         {options.map((data, index) => {
           const { key, value, children, ...optionProps } = (
             typeof option === 'function' ?

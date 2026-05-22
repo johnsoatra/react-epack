@@ -2,19 +2,20 @@ import type { Union } from "../../types";
 import type { TableProps } from "./types";
 
 export default function Table<T extends Record<Union.StringNumber, any>>({
-  columns,
-  rows,
-  thead,
-  tbody,
-  theadTr,
-  tbodyTr,
-  th,
-  td,
-  className,
-  more,
+  pack: {
+    columns,
+    rows,
+    thead,
+    tbody,
+    theadTr,
+    tbodyTr,
+    th,
+    td,
+  },
+  ...props
 }: TableProps<T>) {
   return (
-    <table {...more} className={className} data-re-table="">
+    <table {...props} data-re-table="">
       <thead {...thead} data-re-thead="">
         <tr {...theadTr} data-re-tr="">
           {columns.map((column, index) => {

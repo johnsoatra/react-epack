@@ -1,19 +1,25 @@
-import type { ComProps, More, WithClass, WithKeyChildClass } from "../../types";
+import type { ComProps, NoChild, Pack, WithKey } from "../../types";
 
-export type LIProps = WithKeyChildClass<ComProps.Li>;
+type _LiProps = WithKey<ComProps.Li>;
 
-export type ListProps<T> = WithClass<{
-  data: T[];
-  li?: LIProps | ((
-    item: T,
-    index: number,
-  ) => LIProps);
-}> & More<ComProps.Ul>;
+export type ListProps<T> = Pack<
+  NoChild<ComProps.Ul>,
+  {
+    data: T[];
+    li?: _LiProps | ((
+      item: T,
+      index: number,
+    ) => _LiProps);
+  }
+>;
 
-export type OrderListProps<T> = WithClass<{
-  data: T[];
-  li?: LIProps | ((
-    item: T,
-    index: number,
-  ) => LIProps);
-}> & More<ComProps.Ol>;
+export type OrderListProps<T> = Pack<
+  NoChild<ComProps.Ol>,
+  {
+    data: T[];
+    li?: _LiProps | ((
+      item: T,
+      index: number,
+    ) => _LiProps);
+  }
+>;

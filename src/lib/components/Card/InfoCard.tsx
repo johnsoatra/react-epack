@@ -9,7 +9,7 @@ export default function InfoCard({
     description,
     info,
     suffix,
-  } = {},
+  },
   ...props
 }: InfoCardProps) {
   return (

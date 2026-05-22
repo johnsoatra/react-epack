@@ -1,24 +1,17 @@
 import type { PopoverProps } from "./types";
 
 export default function Popover({
-  show,
-  target,
-  container,
-  children,
-  className,
-  more,
+  pack: {
+    show,
+    target,
+    container,
+  },
+  ...props
 }: PopoverProps) {
   return (
     <div {...container} data-re-popover="">
       {target}
-      {show &&
-        <div
-          {...more}
-          className={className}
-          children={children}
-          data-re-content=""
-        />
-      }
+      {show && <div {...props} data-re-content="" />}
     </div>
   );
 }

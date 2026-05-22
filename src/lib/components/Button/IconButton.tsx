@@ -5,12 +5,12 @@ import Icon from "../Icon/Icon";
 export default function IconButton({
   pack: {
     icon,
-  } = {},
+  },
   ...props
 }: IconButtonProps) {
   return (
     <Button {...props}>
-      {icon && <Icon {...icon} />}
+      {<Icon {...icon} />}
     </Button>
   );
 }

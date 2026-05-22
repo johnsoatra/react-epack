@@ -4,27 +4,20 @@ import Icon from "../Icon/Icon";
 import { groupValue } from "../../utils";
 
 export default function GroupSelect<T extends Union.StringSymbol>({
-  id,
-  container,
-  reactPrefix,
-  prefix,
-  suffix,
-  options,
-  option,
-  optgroup,
-  className,
-  more,
+  pack: {
+    options,
+    option,
+    optgroup,
+    prefix,
+    suffix,
+    container,
+  },
+  ...props
 }: GroupSelectProps<T>) {
   return (
     <div {...container} data-re-c-group-select="">
       {prefix && <Icon {...prefix} />}
-      <select
-        {...more}
-        id={id}
-        name={id}
-        prefix={reactPrefix}
-        className={className}
-        data-re-select="">
+      <select {...props} data-re-select="">
         {groupValue(options).map(({ group, value }, groupIndex) => {
           const { key, label, ...optgroupProps } = (
             typeof optgroup === 'function' ?

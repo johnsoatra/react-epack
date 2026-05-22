@@ -1,8 +1,10 @@
-import type { ComProps, More, WithClass } from "../../types";
+import type { ComProps, NoChild, Pack } from "../../types";
 
-export type PopoverProps = WithClass<{
-  show: boolean;
-  target: React.ReactNode;
-  children: React.ReactNode;
-  container?: WithClass<ComProps.Div>;
-}> & More<ComProps.Div>;
+export type PopoverProps = Pack<
+  ComProps.Div,
+  {
+    show: boolean;
+    target: React.ReactNode;
+    container?: NoChild<ComProps.Div>;
+  }
+>;

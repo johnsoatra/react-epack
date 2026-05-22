@@ -1,7 +1,8 @@
-import type { Affixes, ComProps, More, Union, WithClass } from "../../types";
+import type { Affixes, ComProps, NoChild, Pack, Require } from "../../types";
 
-export type TextareaProps = Affixes & WithClass<{
-  id: string;
-  reactPrefix?: string;
-  container?: WithClass<ComProps.Div>;
-}> & More<ComProps.Textarea, Union.IDName | 'prefix'>;
+export type TextareaProps = Pack<
+  Require<NoChild<ComProps.Textarea>, 'id' | 'name'>,
+  Affixes & {
+    container?: NoChild<ComProps.Div>;
+  }
+>;

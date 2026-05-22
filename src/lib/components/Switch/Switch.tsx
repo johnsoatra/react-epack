@@ -2,30 +2,16 @@ import type { SwitchProps } from "./types";
 import Label from "../Label/Label";
 
 export default function Switch({
-  htmlId,
-  id,
-  input,
-  slider,
-  sliderBall,
-  className,
-  more,
+  pack: {
+    label,
+    slider,
+    sliderBall,
+  } = {},
+  ...props
 }: SwitchProps) {
   return (
-    <Label
-      more={{
-        ...more,
-        id: htmlId,
-        ['data-re-switch' as any]: '',
-      }}
-      htmlFor={id}
-      className={className}>
-      <input
-        {...input}
-        id={id}
-        name={id}
-        type={'checkbox'}
-        data-re-input=""
-      />
+    <Label {...label} htmlFor={props.id}>
+      <input {...props} type={'checkbox'} data-re-input="" />
       <div {...slider} data-re-slider="">
         <div {...sliderBall} data-re-slider-ball="" />
       </div>

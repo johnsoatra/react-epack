@@ -1,9 +1,10 @@
-import type { ComProps, Excludes, More, Union, WithChildClass, WithClass } from "../../types";
+import type { ComProps, Excludes, NoChild, Pack, Require } from "../../types";
 
-export type SwitchProps = WithClass<{
-  htmlId?: string;
-  id: string;
-  input?: Excludes<WithClass<ComProps.Input>, Union.IDName | 'type'>;
-  slider?: WithClass<ComProps.Div>;
-  sliderBall?: WithChildClass<ComProps.Div>;
-}> & More<ComProps.Label, 'htmlFor' | 'id'>;
+export type SwitchProps = Pack<
+  Require<Excludes<NoChild<ComProps.Input>, 'type'>, 'id' | 'name'>,
+  {
+    label?: Excludes<NoChild<ComProps.Label>, 'htmlFor'>;
+    slider?: NoChild<ComProps.Div>;
+    sliderBall?: ComProps.Div;
+  }
+>;

@@ -2,10 +2,10 @@ import type { SvgProps } from './types';
 import { getConfig } from '../../config/config';
 
 export default function Svg({
-  name,
-  reactName,
-  className,
-  more,
+  pack: {
+    name,
+  },
+  ...props
 }: SvgProps) {
   const Icon = getConfig()?.svgList?.[name];
 
@@ -15,11 +15,6 @@ export default function Svg({
   }
 
   return (
-    <Icon
-      {...more}
-      name={reactName}
-      className={className}
-      data-re-svg=""
-    />
+    <Icon {...props} data-re-svg="" />
   );
 }

@@ -1,5 +1,8 @@
-import type { ComProps, More, WithClass } from "../../types";
+import type { ComProps, NoChild, Pack } from "../../types";
 
-export type LineProps = WithClass<{
-  orientation?: 'vertical' | 'horizontal';
-}> & More<ComProps.Div>;
+export type LineProps = Pack<
+  NoChild<ComProps.Div>,
+  {
+    orientation?: 'vertical' | 'horizontal';
+  }
+>;

@@ -13,7 +13,7 @@ export type InfoCardProps = Pack<
     icon: IconProps;
     title: React.ReactNode;
     description: React.ReactNode;
-    info: NoChild<ComProps.Div>;
-    suffix: IconProps;
+    info?: NoChild<ComProps.Div>;
+    suffix?: IconProps;
   }
 >;

@@ -1,6 +1,8 @@
-import type { ComProps, More, WithClass } from "../../types";
+import type { ComProps, NoChild, Pack } from "../../types";
 
-export type SvgProps = WithClass<{
-  name: string,
-  reactName?: string;
-}> & More<ComProps.Svg, 'name'>;
+export type SvgProps = Pack<
+  NoChild<ComProps.Svg>,
+  {
+    name: string;
+  }
+>;
