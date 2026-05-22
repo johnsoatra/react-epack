@@ -7,10 +7,16 @@ export default function Button({
   prefix,
   suffix,
   children,
-  ...props
+  className,
+  more,
 }: ButtonProps) {
   return (
-    <button {...props} type={type ?? 'button'} prefix={reactPrefix} data-re-button="">
+    <button
+      {...more}
+      type={type ?? 'button'}
+      prefix={reactPrefix}
+      className={className}
+      data-re-button="">
       {prefix && <Icon {...prefix} />}
       {children}
       {suffix && <Icon {...suffix} />}

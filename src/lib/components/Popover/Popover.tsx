@@ -4,12 +4,21 @@ export default function Popover({
   show,
   target,
   container,
-  ...props
+  children,
+  className,
+  more,
 }: PopoverProps) {
   return (
     <div {...container} data-re-popover="">
       {target}
-      {show && <div {...props} data-re-content="" />}
+      {show &&
+        <div
+          {...more}
+          className={className}
+          children={children}
+          data-re-content=""
+        />
+      }
     </div>
   );
 }

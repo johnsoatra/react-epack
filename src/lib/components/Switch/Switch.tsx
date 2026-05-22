@@ -1,28 +1,31 @@
 import type { SwitchProps } from "./types";
 import Label from "../Label/Label";
-import Input from "../Input/Input";
 
 export default function Switch({
+  htmlId,
   id,
-  label,
+  input,
   slider,
   sliderBall,
-  ...props
+  className,
+  more,
 }: SwitchProps) {
   return (
-    <Label {...label} htmlFor={id} data-re-switch="">
-      <Input
-        {...props}
+    <Label
+      more={{ ...more, id: htmlId }}
+      htmlFor={id}
+      className={className}
+      data-re-switch="">
+      <input
+        {...input}
         id={id}
+        name={id}
         type={'checkbox'}
-        suffix={{
-          node: <>
-            <div {...slider} data-re-slider="">
-              <div {...sliderBall} data-re-slider-ball="" />
-            </div>
-          </>
-        }}
+        data-re-input=""
       />
+      <div {...slider} data-re-slider="">
+        <div {...sliderBall} data-re-slider-ball="" />
+      </div>
     </Label>
   );
 }

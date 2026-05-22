@@ -1,15 +1,7 @@
-import type { IconProps } from "../Icon/types";
-import type { DivProps, ExcludeChildren, InputExcludedAttributes } from "../types";
+import type { Affixes, ComProps, More, Union, WithClass } from "../../types";
 
-export type TextareaProps = ExcludeChildren<
-  Omit<
-    React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-    InputExcludedAttributes
-  >
-> & {
+export type TextareaProps = Affixes & WithClass<{
   id: string;
-  container?: ExcludeChildren<DivProps>;
   reactPrefix?: string;
-  prefix?: IconProps;
-  suffix?: IconProps;
-};
+  container?: WithClass<ComProps.Div>;
+}> & More<ComProps.Textarea, Union.IDName | 'prefix'>;

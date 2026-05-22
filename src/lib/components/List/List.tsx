@@ -4,10 +4,11 @@ import type { ListProps } from "./types";
 export default function List<T extends React.ReactNode>({
   data,
   li,
-  ...props
+  className,
+  more,
 }: ListProps<T>) {
   return (
-    <ul {...props} data-re-list="">
+    <ul {...more} className={className} data-re-list="">
       {data.map((item, index) => {
         const { key, children, ...liProps } = (
           typeof li === 'function' ?

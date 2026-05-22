@@ -1,38 +1,41 @@
 import type React from "react";
-import type { StringNumber } from "../../types";
-import type { ExcludeChildren, IncludeKey } from "../types";
+import type { ComProps, More, Union, WithClass, WithKeyChildClass, WithKeyClass } from "../../types";
 
-export type Column<K extends StringNumber> = {
+export type Column<K extends Union.StringNumber> = {
   label: React.ReactNode;
   index: K;
 };
 
-export type TrProps = ExcludeChildren<React.HTMLAttributes<HTMLTableRowElement>>;
+export type TheadProps = WithClass<ComProps.Thead>;
+export type TbodyProps = WithClass<ComProps.Tbody>;
 
-export type TheadProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
-export type TbodyProps = ExcludeChildren<React.HTMLAttributes<HTMLTableSectionElement>>;
+export type TheadTrProps = WithClass<ComProps.Tr>;
+export type TbodyTrProps = WithKeyClass<ComProps.Tr>;
 
-export type TheadTrProps = TrProps;
-export type TbodyTrProps = IncludeKey<TrProps>;
-
-export type ThProps = IncludeKey<React.ThHTMLAttributes<HTMLTableCellElement>>;
-export type TdProps = IncludeKey<React.HTMLAttributes<HTMLTableCellElement>>;
+export type ThProps = WithKeyChildClass<ComProps.Th>;
+export type TdProps = WithKeyChildClass<ComProps.Td>;
 
 export type TableProps<
-  T extends Record<StringNumber, any>,
-  K extends Extract<keyof T, StringNumber> = Extract<keyof T, StringNumber>
-> = ExcludeChildren<React.TableHTMLAttributes<HTMLTableElement>> & {
+  T extends Record<Union.StringNumber, any>,
+  K extends Extract<keyof T, Union.StringNumber> = Extract<keyof T, Union.StringNumber>
+> = WithClass<{
   columns: Column<K>[];
   rows: T[];
   thead?: TheadProps;
   tbody?: TbodyProps;
   theadTr?: TheadTrProps;
-  tbodyTr?: TbodyTrProps | ((row: T, index: number) => TbodyTrProps);
-  th?: ThProps | ((column: Column<K>, index: number) => ThProps);
+  tbodyTr?: TbodyTrProps | ((
+    row: T,
+    index: number,
+  ) => TbodyTrProps);
+  th?: ThProps | ((
+    column: Column<K>,
+    index: number,
+  ) => ThProps);
   td?: TdProps | ((data: {
     row: T;
     column: Column<K>;
     rowIndex: number;
     columnIndex: number;
   }) => TdProps);
-}
+}> & More<ComProps.Table>;

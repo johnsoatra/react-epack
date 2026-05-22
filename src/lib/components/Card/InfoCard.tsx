@@ -9,10 +9,13 @@ export default function InfoCard({
   description,
   info,
   suffix,
-  ...props
+  className,
+  more,
 }: InfoCardProps) {
   return (
-    <Card {...props} title={htmlTitle}>
+    <Card
+      more={{ ...more, title: htmlTitle }}
+      className={className}>
       <Icon {...icon} />
       <div {...info} data-re-info="">
         {title}

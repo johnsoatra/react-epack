@@ -1,9 +1,9 @@
-import type { StringSymbol } from "../../types";
+import type { Union } from "../../types";
 import type { GroupSelectProps } from "./types";
 import Icon from "../Icon/Icon";
 import { groupValue } from "../../utils";
 
-export default function GroupSelect<T extends StringSymbol>({
+export default function GroupSelect<T extends Union.StringSymbol>({
   id,
   container,
   reactPrefix,
@@ -12,16 +12,18 @@ export default function GroupSelect<T extends StringSymbol>({
   options,
   option,
   optgroup,
-  ...props
+  className,
+  more,
 }: GroupSelectProps<T>) {
   return (
     <div {...container} data-re-c-group-select="">
       {prefix && <Icon {...prefix} />}
       <select
-        {...props}
+        {...more}
         id={id}
         name={id}
         prefix={reactPrefix}
+        className={className}
         data-re-select="">
         {groupValue(options).map(({ group, value }, groupIndex) => {
           const { key, label, ...optgroupProps } = (

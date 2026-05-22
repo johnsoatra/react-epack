@@ -1,49 +1,36 @@
 import type React from "react";
-import type { StringSymbol } from "../../types";
-import type { DivProps, ExcludeChildren, IncludeKey, InputExcludedAttributes } from "../types";
-import type { IconProps } from "../Icon/types";
+import type { Affixes, ComProps, Excludes, More, Union, WithClass, WithKeyChildClass, WithKeyClass } from "../../types";
 
 export type Option = {
   label: React.ReactNode;
   value: any;
 }
-export type OptgroupProps = IncludeKey<ExcludeChildren<React.OptgroupHTMLAttributes<HTMLOptGroupElement>>>;
-export type OptionProps = IncludeKey<React.OptionHTMLAttributes<HTMLOptionElement>>;
-export type SelectProps = ExcludeChildren<
-  Omit<
-    React.SelectHTMLAttributes<HTMLSelectElement>,
-    InputExcludedAttributes
-  >
-> & {
-  id: string;
-  options: Option[];
-  option?: OptionProps | ((option: Option, index: number) => OptionProps);
-  container?: ExcludeChildren<DivProps>;
-  reactPrefix?: string;
-  prefix?: IconProps;
-  suffix?: IconProps;
-};
 
-export type GroupSelectProps<T extends StringSymbol> = ExcludeChildren<
-  Omit<
-    React.SelectHTMLAttributes<HTMLSelectElement>,
-    InputExcludedAttributes
-  >
-> & {
+export type OptgroupProps = WithKeyClass<ComProps.Optgroup>;
+
+export type OptionProps = WithKeyChildClass<ComProps.Option>;
+
+export type SelectProps = Affixes & WithClass<{
   id: string;
-  options: Record<T, Option[]>;
-  optgroup?: OptgroupProps | ((
-    group: T,
+  reactPrefix?: string;
+  options: Option[];
+  option?: OptionProps | ((
+    option: Option,
     index: number,
-  ) => OptgroupProps);
+  ) => OptionProps);
+  container?: WithClass<ComProps.Div>;
+}> & More<ComProps.Select, Union.IDName | 'prefix'>;
+
+export type GroupSelectProps<T extends Union.StringSymbol> = Excludes<SelectProps, 'options' | 'option'> & {
+  options: Record<T, Option[]>;
   option?: OptionProps | ((data: {
     group: T;
     option: Option;
     groupIndex: number;
     optionIndex: number;
   }) => OptionProps);
-  container?: ExcludeChildren<DivProps>;
-  reactPrefix?: string;
-  prefix?: IconProps;
-  suffix?: IconProps;
-};
+  optgroup?: OptgroupProps | ((
+    group: T,
+    index: number,
+  ) => OptgroupProps);
+}

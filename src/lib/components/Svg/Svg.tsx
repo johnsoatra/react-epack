@@ -4,7 +4,8 @@ import { getConfig } from '../../config/config';
 export default function Svg({
   name,
   reactName,
-  ...props
+  className,
+  more,
 }: SvgProps) {
   const Icon = getConfig()?.svgList?.[name];
 
@@ -14,6 +15,11 @@ export default function Svg({
   }
 
   return (
-    <Icon {...props} name={reactName} data-re-svg="" />
+    <Icon
+      {...more}
+      name={reactName}
+      className={className}
+      data-re-svg=""
+    />
   );
 }

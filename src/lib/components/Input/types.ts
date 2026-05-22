@@ -1,19 +1,12 @@
-import type React from "react";
-import type { DivProps, ExcludeChildren, InputExcludedAttributes } from "../types";
-import type { IconProps } from "../Icon/types";
+import type { Affixes, ComProps, Excludes, More, Union, WithClass } from "../../types";
 
-export type InputProps = ExcludeChildren<
-  Omit<
-    React.InputHTMLAttributes<HTMLInputElement>,
-    InputExcludedAttributes
-  >
-> & {
+export type InputProps = Affixes & WithClass<{
   id: string;
-  container?: ExcludeChildren<DivProps>;
+  type?: ComProps.Input['type'];
   reactPrefix?: string;
-  prefix?: IconProps;
-  suffix?: IconProps;
-};
-export type PasswordInputProps = Omit<InputProps, 'type'> & {
+  container?: WithClass<ComProps.Div>;
+}> & More<ComProps.Input, Union.IDName | 'prefix' | 'type'>;
+
+export type PasswordInputProps = Excludes<InputProps, 'type'> & {
   show?: boolean;
 };

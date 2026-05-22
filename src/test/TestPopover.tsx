@@ -19,11 +19,17 @@ export default function () {
     <Popover
       show={show}
       target={
-        <Input id="test" placeholder="test" onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          setShow(true);
-        }} />
+        <Input
+          id="test"
+          more={{
+            placeholder: "test",
+            onClick(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              setShow(true);
+            }
+          }}
+        />
       }>
       <p>Hello world</p>
       <p>Hello world</p>
@@ -31,6 +37,6 @@ export default function () {
       <p>Hello world</p>
       <p>Hello world</p>
       <p>Hello world</p>
-    </Popover>
+    </Popover >
   );
 }

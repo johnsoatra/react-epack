@@ -1,7 +1,7 @@
 import type React from "react";
-import type { ExcludeChildren } from "../types";
+import type { ComProps, More, WithClass } from "../../types";
 
-export type LabelProps = ExcludeChildren<Omit<React.LabelHTMLAttributes<HTMLLabelElement>, 'htmlFor'>> & {
+export type LabelProps = WithClass<{
   htmlFor: string;
   children: React.ReactNode;
-};
+}> & More<ComProps.Label, 'htmlFor'>;

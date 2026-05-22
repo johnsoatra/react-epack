@@ -1,9 +1,9 @@
-import type { InputProps } from "../Input/types";
-import type { LabelProps } from "../Label/types";
-import type { DivProps, ExcludeChildren, PrefixSuffix } from "../types";
+import type { ComProps, Excludes, More, Union, WithChildClass, WithClass } from "../../types";
 
-export type SwitchProps = Omit<InputProps, 'type' | PrefixSuffix> & {
-  label?: ExcludeChildren<Omit<LabelProps, 'htmlFor'>>;
-  slider?: ExcludeChildren<DivProps>;
-  sliderBall?: ExcludeChildren<DivProps>;
-};
+export type SwitchProps = WithClass<{
+  htmlId?: string;
+  id: string;
+  input?: Excludes<WithClass<ComProps.Input>, Union.IDName | 'type'>;
+  slider?: WithClass<ComProps.Div>;
+  sliderBall?: WithChildClass<ComProps.Div>;
+}> & More<ComProps.Label, 'htmlFor' | 'id'>;

@@ -9,16 +9,18 @@ export default function Select({
   suffix,
   options,
   option,
-  ...props
+  className,
+  more,
 }: SelectProps) {
   return (
     <div {...container} data-re-c-select="">
       {prefix && <Icon {...prefix} />}
       <select
-        {...props}
+        {...more}
         id={id}
         name={id}
         prefix={reactPrefix}
+        className={className}
         data-re-select="">
         {options.map((data, index) => {
           const { key, value, children, ...optionProps } = (

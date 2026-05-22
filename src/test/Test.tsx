@@ -27,7 +27,7 @@ export default function () {
           children: option.value === 'male' ? '11' : option.label,
         })}
       />
-      <Switch id="s" />
+      <Switch id="test" />
       {/* <Input id="test" placeholder="test"/> */}
       <Table
         columns={[

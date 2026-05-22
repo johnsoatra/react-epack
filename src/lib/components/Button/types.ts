@@ -1,12 +1,13 @@
 import type React from "react";
-import type { IconProps } from "../Icon/types";
-import type { ExcludeChildren } from "../types";
+import type { Affixes, ComProps, More, NoChild, WithClass } from "../../types";
+import type { IconProps } from "../Icon";
 
-export type ButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'prefix'> & {
+export type ButtonProps = Affixes & WithClass<{
+  type?: ComProps.Button['type'];
   reactPrefix?: string;
-  prefix?: IconProps;
-  suffix?: IconProps;
-};
-export type IconButtonProps = ExcludeChildren<ButtonProps> & {
-  icon: IconProps,
-};
+  children?: React.ReactNode;
+}> & More<ComProps.Button, 'type' | 'prefix'>;
+
+export type IconButtonProps = NoChild<ButtonProps> & {
+  icon: IconProps;
+}

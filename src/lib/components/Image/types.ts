@@ -1,12 +1,6 @@
-import type React from "react";
-import type { ExcludeChildren } from "../types";
+import type { ComProps, More, WithClass } from "../../types";
 
-export type ImageProps = ExcludeChildren<
-  Omit<
-    React.ImgHTMLAttributes<HTMLImageElement>,
-    'alt' | 'src'
-  >
-> & {
+export type ImageProps = WithClass<{
   alt: string;
-  src: string;
-};
+  src: string | undefined;
+}> & More<ComProps.Img, 'alt' | 'src'>;

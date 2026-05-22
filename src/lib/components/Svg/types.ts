@@ -1,6 +1,6 @@
-import type { ExcludeChildren } from "../types";
+import type { ComProps, More, WithClass } from "../../types";
 
-export type SvgProps = ExcludeChildren<Omit<React.SVGProps<SVGSVGElement>, 'name'>> & {
+export type SvgProps = WithClass<{
   name: string,
   reactName?: string;
-};
+}> & More<ComProps.Svg, 'name'>;
