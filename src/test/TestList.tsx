@@ -5,14 +5,17 @@ export default function () {
   const [show, setShow] = useState(false);
   return (
     <List
-      data={[
-        'hello world',
-        'good bu work'
-      ]}
-      li={(item) => ({
-        className: 'border-t',
-        key: item,
-      })}
+      pack={{
+        data: [
+          'hello world',
+          'good bu work'
+        ],
+        li: (item) => ({
+          className: 'border-t',
+          key: item,
+        }),
+
+      }}
       className="bg-red-100 rounded-sm border"
     />
   );

@@ -17,20 +17,20 @@ export default function () {
   }, []);
   return (
     <Popover
-      show={show}
-      target={
-        <Input
-          id="inputf"
-          more={{
-            placeholder: "test",
-            onClick(e) {
+      pack={{
+        show,
+        target:
+          <Input
+            id="inputf"
+            name="inputf"
+            placeholder="test"
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               setShow(true);
-            }
-          }}
-        />
-      }>
+            }}
+          />
+      }}>
       <p>Hello world</p>
       <p>Hello world</p>
       <p>Hello world</p>

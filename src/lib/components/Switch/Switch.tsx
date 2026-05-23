@@ -10,7 +10,7 @@ export default function Switch({
   ...props
 }: SwitchProps) {
   return (
-    <Label {...label} htmlFor={props.id}>
+    <Label {...label} htmlFor={props.id} data-re-switch>
       <input {...props} type={'checkbox'} data-re-input="" />
       <div {...slider} data-re-slider="">
         <div {...sliderBall} data-re-slider-ball="" />

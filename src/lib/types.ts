@@ -1,6 +1,24 @@
 import type React from "react";
 import type { IconProps } from "./components";
 
+namespace Internal {
+  export type RequiredKeys<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
+  }[keyof T];
+
+  export type OptionalProp<T, K extends string> = RequiredKeys<T> extends never ?
+    {
+      [P in K]?: T | undefined;
+    } :
+    {
+      [P in K]: T;
+    };
+}
+
+export type Affixes = {
+  [K in Union.PrefixSuffix]?: IconProps;
+};
+
 export type Option = {
   label: React.ReactNode;
   value: any;
@@ -13,42 +31,21 @@ export type Column<K extends Union.StringNumber> = {
 
 export type Excludes<T, K extends keyof NonNullable<T>> = Omit<T, K>;
 
-type RequiredKeys<T> = {
-  [K in keyof T]-?: {} extends Pick<T, K> ? never : K;
-}[keyof T];
-
 export type Require<T, K extends keyof T> = Omit<T, K> & {
   [P in K]-?: Required<T[P]>;
 }
-
-export type OptionalProp<T, K extends string> = RequiredKeys<T> extends never ?
-  {
-    [P in K]?: T | undefined;
-  } :
-  {
-    [P in K]: T;
-  };
 
 export type OneOf<T> = {
   [K in keyof T]: Required<Pick<T, K>> & Partial<Record<Exclude<keyof T, K>, never>>;
 }[keyof T];
 
-export type More<
-  T,
-  K extends keyof (
-    T extends { more?: any } ?
-    NonNullable<T['more']> :
-    T
-  ) | undefined = undefined
-> = T extends { more?: any } ? (
-  Omit<T, 'more'> & {
-    more?: K extends undefined ? NonNullable<T['more']> : Omit<NonNullable<T['more']>, NonNullable<K>>;
-  }
-) : {
-  more?: K extends undefined ? T : Omit<T, NonNullable<K>>;
-};
+export type WithKey<T> = T & {
+  key?: React.Attributes['key'];
+}
 
-export type Pack<T, P> = Omit<T, 'pack'> & OptionalProp<
+export type NoChild<T extends { children?: any }> = Omit<T, 'children'>;
+
+export type Pack<T, P> = Omit<T, 'pack'> & Internal.OptionalProp<
   (T extends { pack: any } ? Omit<T['pack'], keyof P> : {}) & P,
   'pack'
 >;
@@ -82,29 +79,3 @@ export namespace ComProps {
   export type Th = Excludes<React.ComponentProps<'th'>, Union.Key>;
   export type Td = Excludes<React.ComponentProps<'td'>, Union.Key>;
 }
-
-export type Affixes = {
-  [K in Union.PrefixSuffix]?: IconProps;
-};
-
-export type WithKey<T> = T & {
-  key?: React.Attributes['key'];
-}
-
-export type WithChild<T> = T & {
-  children?: React.ReactNode;
-}
-
-export type WithClass<T> = T & {
-  className?: string;
-}
-
-export type WithKeyChild<T> = WithKey<WithChild<T>>;
-
-export type WithChildClass<T> = WithChild<WithClass<T>>;
-
-export type WithKeyClass<T> = WithKey<WithClass<T>>;
-
-export type WithKeyChildClass<T> = WithKey<WithChild<WithClass<T>>>;
-
-export type NoChild<T extends { children?: any }> = Omit<T, 'children'>;
