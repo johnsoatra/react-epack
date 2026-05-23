@@ -85,4 +85,12 @@
       @apply w-[0.5px] h-auto self-stretch;
     }
   }
+
+  [data-re-card] {
+    @apply flex items-center gap-x-1.5;
+
+    [data-re-info] {
+      @apply flex flex-col items-start justify-start;
+    }
+  }
 }

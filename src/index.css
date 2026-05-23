@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+[data-re-table] {
+  @apply border-gray-300;
+}

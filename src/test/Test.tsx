@@ -1,4 +1,4 @@
-import { Button, GroupSelect, Input, Switch, Table, type ButtonProps } from "../lib";
+import { Button, GroupSelect, InfoCard, Input, Switch, Table, type ButtonProps } from "../lib";
 import TestCard from "./TestCard";
 import TestLine from "./TestLine";
 import TestPopover from "./TestPopover";
@@ -7,6 +7,13 @@ export default function () {
   return (
     // <Button>Hello world</Button>
     <div className="flex flex-col items-start">
+      <InfoCard
+        pack={{
+          description: <span>'Hello'</span>,
+          title: <span>'test'</span>,
+          icon: { node: 'icon' }
+        }}
+      />
       <TestCard />
       <TestLine />
       <TestPopover />
