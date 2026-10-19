@@ -2,16 +2,14 @@ import type { Union } from "../../types";
 import type { TableProps } from "./types";
 
 export default function Table<T extends Record<Union.StringNumber, any>>({
-  pack: {
-    columns,
-    rows,
-    thead,
-    tbody,
-    theadTr,
-    tbodyTr,
-    th,
-    td,
-  },
+  columns,
+  rows,
+  thead,
+  tbody,
+  theadTr,
+  tbodyTr,
+  th,
+  td,
   ...props
 }: TableProps<T>) {
   return (
