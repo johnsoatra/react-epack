@@ -4,10 +4,11 @@ import Input from "./Input";
 export default function PasswordInput({
   pack: {
     show,
+    ...pack
   } = {},
   ...props
 }: PasswordInputProps) {
   return (
-    <Input {...props} type={show ? 'text' : 'password'} />
+    <Input {...props} pack={pack} type={show ? 'text' : 'password'} />
   );
 }

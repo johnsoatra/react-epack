@@ -1,8 +1,9 @@
-import type { ComProps, NoChild, Pack } from "../../types";
+import type { ComProps, Excludes, NoChild, Pack } from "../../types";
+import { type SvgList } from "../../config/types";
 
 export type SvgProps = Pack<
-  NoChild<ComProps.Svg>,
+  Excludes<NoChild<ComProps.Svg>, 'name'> & { name: keyof SvgList },
   {
-    name: string;
+    reactName?: string;
   }
 >;

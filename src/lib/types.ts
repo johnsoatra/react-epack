@@ -46,7 +46,7 @@ export type WithKey<T> = T & {
 export type NoChild<T extends { children?: any }> = Omit<T, 'children'>;
 
 export type Pack<T, P> = Omit<T, 'pack'> & Internal.OptionalProp<
-  (T extends { pack: any } ? Omit<T['pack'], keyof P> : {}) & P,
+  (T extends { pack?: any } ? Omit<NonNullable<T['pack']>, keyof P> : {}) & P,
   'pack'
 >;
 
